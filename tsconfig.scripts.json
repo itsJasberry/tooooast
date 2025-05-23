@@ -1,0 +1,21 @@
+{
+    "compilerOptions": {
+      "target": "ES2020",                       // Cel kompilacji JavaScript
+      "module": "CommonJS",                     // WAŻNE: Użyj CommonJS dla prostszego uruchamiania z Node.js
+      "outDir": "./dist/scripts",               // Gdzie trafią skompilowane pliki .js
+      "rootDir": "./scripts",                   // Katalog ze źródłowymi plikami .ts skryptów
+      "esModuleInterop": true,                  // Umożliwia importowanie modułów CommonJS jak modułów ES
+      "forceConsistentCasingInFileNames": true, // Wymusza spójność wielkości liter w nazwach plików
+      "strict": true,                           // Włącz wszystkie ścisłe opcje sprawdzania typów
+      "skipLibCheck": true,                     // Pomiń sprawdzanie typów dla plików deklaracji bibliotek
+      "resolveJsonModule": true,                // Pozwala importować pliki .json
+      "moduleResolution": "node"                // Jak Node.js rozwiązuje moduły
+    },
+    "include": [
+      "./scripts/**/*.ts"                      // Jakie pliki .ts ma kompilować
+    ],
+    "exclude": [
+      "node_modules",
+      "./src"                                  // Wyklucz kod aplikacji Next.js (jeśli ma inne ustawienia)
+    ]
+  }

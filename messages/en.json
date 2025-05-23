@@ -1,0 +1,31 @@
+{
+  "IndexPage": {
+    "Travel": "Travel"
+  },
+  "LocaleSwitcher": {
+    "Welcome": "Welcome",
+    "label": "Select language",
+    "locale": "{locale, select, pl {🇵🇱 Polski} en {🇺🇸 English} other {Unknown}}"
+  },
+  "LocaleLayout": {
+    "title": "WebToast best services"
+  },
+  "GamingArticlePage": {
+    "titleNotAvailable": "Title not available",
+    "contentNotAvailable": "Content not available",
+    "backToList": "Back to news list",
+    "publishedOn": "Published on"
+  },
+  "GamingNewsPage": {
+    "title": "Latest Gaming News",
+    "noArticles": "No gaming articles available at the moment. Please check back later.",
+    "errorLoading": "Error loading gaming news articles.",
+    "noArticlesOnPage": "No articles found on this page.",
+    "goToFirstPage": "Go to first page",
+    "previousPage": "Previous",
+    "nextPage": "Next",
+    "pageIndicator": "Page {currentPage} of {totalPages}",
+    "loadingArticles": "Loading articles...",
+    "noMoreArticles": "No more articles to display."
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "IndexPage": {
+    "Travel": "Podróz"
+  },
+  "LocaleSwitcher": {
+    "Welcome": "Witam",
+    "label": "Wybierz język",
+    "locale": "{locale, select, pl {🇵🇱 Polski} en {🇺🇸 English} other {Nieznany}}"
+  },
+  "LocaleLayout": {
+    "title": "WebToast to najlepsza usługa"
+  },
+  "GamingArticlePage": {
+    "titleNotAvailable": "Tytuł niedostępny",
+    "contentNotAvailable": "Treść niedostępna",
+    "backToList": "Powrót do listy wiadomości",
+    "publishedOn": "Opublikowany"
+  },
+  "GamingNewsPage": {
+    "title": "Najnowsze wieści ze świata gier",
+    "noArticles": "Obecnie brak artykułów o grach. Sprawdź później.",
+    "errorLoading": "Błąd podczas ładowania artykułów o grach.",
+    "noArticlesOnPage": "Nie znaleziono artykułów na tej stronie.",
+    "goToFirstPage": "Idź do pierwszej strony",
+    "previousPage": "Poprzednia",
+    "nextPage": "Następna",
+    "pageIndicator": "Strona {currentPage} z {totalPages}",
+    "loadingArticles": "Ładowanie artykułów...",
+    "noMoreArticles": "Brak więcej artykułów do wyświetlenia."
+  }
+}
