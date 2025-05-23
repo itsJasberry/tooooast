@@ -5,6 +5,7 @@ import { notFound, redirect } from 'next/navigation';
 import Link from 'next/link'; 
 import { ArrowLeftIcon } from '@heroicons/react/24/outline'; 
 import { getTranslations } from 'next-intl/server';
+import Image from 'next/image';
 
 // Interfejsy i typy pozostają bez zmian
 
@@ -90,14 +91,17 @@ export async function generateMetadata({ params }: PageProps) {
     ? article.content_pl?.substring(0, 160) || article.content?.substring(0, 160) || ''
     : article.content?.substring(0, 160) || '';
 
+  // Poprawka: dla polskiego nie dodajemy /pl w URL
+  const canonicalPath = locale === 'en' ? `/en/gaming/${slug}` : `/gaming/${slug}`;
+
   return {
     title: title,
     description: description,
     alternates: {
-      canonical: `https://yourdomain.com/${locale}/gaming/${slug}`,
+      canonical: `https://www.webtoast.dev${canonicalPath}`,
       languages: {
-        'en': `https://web-toast.vercel.app/en/gaming/${article.slug_en}`,
-        'pl': `https://web-toast.vercel.app/pl/gaming/${article.slug_pl}`,
+        'en': `https://www.webtoast.dev/en/gaming/${article.slug_en}`,
+        'pl': `https://www.webtoast.dev/gaming/${article.slug_pl}`,
       },
     },
   };
@@ -126,7 +130,8 @@ export default async function GamingArticlePage({ params }: PageProps) {
   const correctSlug = locale === 'pl' ? article.slug_pl : article.slug_en;
   if (slug !== correctSlug) {
     // Przekierowujemy na poprawny URL z odpowiednim slugiem
-    redirect(`/${locale}/gaming/${correctSlug}`);
+    const redirectPath = locale === 'en' ? `/en/gaming/${correctSlug}` : `/gaming/${correctSlug}`;
+    redirect(redirectPath);
   }
 
   const t = await getTranslations('GamingArticlePage');
@@ -247,11 +252,12 @@ export default async function GamingArticlePage({ params }: PageProps) {
       );
     });
   };
-  
+  const backToListPath = locale === 'en' ? '/en/gaming' : '/gaming';
+
   return (
     <div className="max-w-4xl mx-auto px-4 py-8 pt-40">
       <Link 
-        href={`/${locale}/gaming`} 
+        href={backToListPath} 
         className="inline-flex items-center text-blue-600 hover:text-blue-800 mb-6"
       >
         <ArrowLeftIcon className="h-5 w-5 mr-2" />
@@ -261,7 +267,7 @@ export default async function GamingArticlePage({ params }: PageProps) {
       <article className="bg-white rounded-lg shadow-md overflow-hidden">
         {article.image_url && (
           <div className="relative h-96 overflow-hidden">
-            <img 
+            <Image 
               src={article.image_url} 
               alt={title} 
               className="w-full h-full object-cover"
